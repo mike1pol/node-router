@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "standard",
     "test": "nyc mocha tests/",
-    "test:report": "nyc --reporter=lcov --reporter=text-summary mocha tests/"
+    "test:report": "nyc --reporter=lcov --reporter=text-summary mocha tests/",
+    "test:codecov": "codecov"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -28,6 +29,7 @@
   "author": "Mikhail Poluboyarinov <mikle.sol@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "codecov": "^3.5.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "sinon": "^7.3.2",

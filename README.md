@@ -3,6 +3,7 @@ Small router for node.js http/https
 
 [![Build Status](https://travis-ci.org/mike1pol/node-router.svg?branch=master)](https://travis-ci.org/mike1pol/node-router)
 [![npm version](https://badge.fury.io/js/%40mikepol%2Fnode-router.svg)](https://badge.fury.io/js/%40mikepol%2Fnode-router)
+[![codecov](https://codecov.io/gh/mike1pol/node-router/branch/master/graph/badge.svg)](https://codecov.io/gh/mike1pol/node-router)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
