@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '8'
+- lts/*
+- node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: npm
+  email: mikle.sol@gmail.com
+  api_key:
+    secure: LeechBmnU5DwsxIH+ufowEMzgRIlVkRxbHoEfoBlIdjsRJ0aIuJWVclgV8Yx2KbrikAkT3Vo85Rn/9zHMAn8xnWYG66epN3X2xAPS5ukNoQbPOH4CestbN6B0jj1GQnaH4AaFR76LR5RKfErqCaBAEJDUB8iYRDbS5tkRjfhAwqkgbCcgMIIBnjXzv/hVpneNIrmoRwrQ8u0YayN6G1g6F5AGZfSsWxuSZovcsSk0uM88Z1S+i6IKSuPTacx4BzQga1sNQ/X37H4QUXH1RCfSkFi+V6C23MjgTyLI3Zw1C/dO3/3VOPKfKqeS2Yd9sRpFBoAC3GSy4+j7AixBEPuB24VUpuZnZB2YjXkJSbSQcBhyLVAMSkLV7icQGI0P78RusQL6Jf/5+xUdoDznfOAn1K4sK8NZ9yX+Ajiw4LUtLRDNE6kR6uu/JWZ2BCLq1gSkHdGukhk2Vc+myyOHmHqykLir3JaKRfD0uDt/Yp7C/YhnhW0qOCSZQu05FRdRmiyCX2NSMW6urVmuuzcHYsHE9ha8xYpY+gz9hYq4gzhQjJsESdo6wG5pS1G08SJtokR6MAPH/oSMWtKPqLT9uExZcSQCJpIDdtsjiLFtGxvueHuDhmdDyq47eX5WL+CwvxADutq6IP2XnBOecFzkioNgULDCJwNiEN1YTzSkiY7N58=
+  on:
+    tags: true
+    repo: mike1pol/node-router

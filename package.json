@@ -1,0 +1,36 @@
+{
+  "name": "@mikepol/node-router",
+  "version": "0.0.2",
+  "description": "Small pure router for node.js http/https",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "nyc mocha tests/",
+    "test:report": "nyc --reporter=lcov --reporter=text-summary mocha tests/"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike1pol/node-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mike1pol/node-router/issues"
+  },
+  "homepage": "https://github.com/mike1pol/node-router#readme",
+  "keywords": [
+    "node",
+    "router",
+    "http",
+    "https"
+  ],
+  "author": "Mikhail Poluboyarinov <mikle.sol@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "sinon": "^7.3.2",
+    "standard": "^12.0.1"
+  }
+}
