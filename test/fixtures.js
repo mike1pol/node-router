@@ -54,13 +54,13 @@ const rm = [
           res.next()
         }
       },
-      (req, res) => {
+      (req, res, next) => {
         if (!('Content-Type' in req.headers) ||
             req.headers['Content-Type'] !== 'application/json') {
           res.statusCode = 403
           res.end('Wrong Content-Type')
         } else {
-          res.next()
+          next()
         }
       }
     ],

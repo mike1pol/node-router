@@ -1,6 +1,6 @@
 {
   "name": "@mikepol/node-router",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Small pure router for node.js http/https",
   "main": "index.js",
   "scripts": {

@@ -11,7 +11,7 @@ function route (r, req, res) {
   req.route = r
   if (intercept.length > 0) {
     let tick = intercept.length - 1
-    res.next = () => {
+    const next = () => {
       tick -= 1
       if (tick >= 0) {
         intercept[tick](req, res)
@@ -19,7 +19,8 @@ function route (r, req, res) {
         handler(req, res)
       }
     }
-    return intercept[tick](req, res)
+    res.next = next;
+    return intercept[tick](req, res, next)
   }
   return handler(req, res)
 }
