@@ -8,3 +8,9 @@ yarn.lock
 coverage/
 tests/
 .travis.yml
+.DS_Store
+.eslintrc.js
+.github/
+.nyc_output
+test/
+examples/
