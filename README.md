@@ -33,7 +33,7 @@ const routes = [
     }
   },
   {
-    method: 'get,
+    method: 'get',
     url: /^\/page\/(\d)/,
     handler: (req, res) => {
       console.log(req.route.match);
