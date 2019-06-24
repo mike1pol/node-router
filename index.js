@@ -8,7 +8,7 @@ function notFound (nf, req, res) {
 
 function route (r, req, res) {
   const { handler, intercept = [] } = r
-  req.match = r
+  req.route = r
   if (intercept.length > 0) {
     let tick = intercept.length - 1
     res.next = () => {
@@ -38,12 +38,24 @@ function router (routes) {
     if ('intercept' in v && !(Array.isArray(v.intercept))) {
       throw new Error(`Wrong intercept in route index: ${i}`)
     }
+    if (!('url' in v) && !('notFound' in v)) {
+      throw new Error(`Route without url. Route index: ${i}`)
+    }
+    if ('url' in v && !(typeof v.url === 'string' || v.url instanceof RegExp)) {
+      throw new Error(`Router url wrong type. Route index: ${i}`)
+    }
   })
   const nf = routes.find(v => 'notFound' in v)
   return (request, res) => {
     const { method, url, headers, ...raw } = request
     const req = { method, url, headers, raw, routes }
-    const match = routes.filter(v => v.url === url)
+    const match = routes.filter(v => {
+      if (v.url instanceof RegExp && v.url.test(url)) {
+        v.match = v.url.exec(url)
+        return true
+      }
+      return v.url === url
+    })
     if (match.length === 0) {
       return notFound(nf, req, res)
     }

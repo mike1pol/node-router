@@ -19,6 +19,14 @@ const rm = [
   },
   {
     method: 'get',
+    url: /^\/page\/(\d)/,
+    handler: (req, res) => {
+      res.statusCode = 200
+      res.end('GET /page/\\d')
+    }
+  },
+  {
+    method: 'get',
     url: '/secret',
     intercept: [(req, res) => {
       if (!('secret' in req.headers) || req.headers.secret !== 'secret') {

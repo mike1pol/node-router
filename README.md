@@ -33,6 +33,16 @@ const routes = [
     }
   },
   {
+    method: 'get,
+    url: /^\/page\/(\d)/,
+    handler: (req, res) => {
+      console.log(req.route.match);
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'text/plain')
+      res.end('post /')
+    }
+  },
+  {
     url: '/all',
     handler: (req, res) => {
       res.statusCode = 200
@@ -58,6 +68,3 @@ srv.listen(3000, (err) => {
   console.log(`server started on http://localhost:3000`)
 })
 ```
-
-## Todo
-- [ ] Add RegExp

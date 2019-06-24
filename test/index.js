@@ -64,10 +64,20 @@ describe('router', () => {
       rmt.push({ handler: true })
       assert.throws(() => router(rmt), Error, `Wrong intercept in route index: ${rmt.length - 1}`)
     })
+    it('catch if not set url and notFound', () => {
+      const rmt = [...rm]
+      rmt.push({ handler: rm[0].handler })
+      assert.throws(() => router(rmt), Error, `Route without url. Route index: ${rmt.length - 1}`)
+    })
     it('catch if some route intercept is wrong type', () => {
       const rmt = [...rm]
       rmt.push({ intercept: true, handler: rm[0].handler })
       assert.throws(() => router(rmt), Error, `Wrong intercept in route index: ${rmt.length - 1}`)
+    })
+    it('catch if some route url wrong type', () => {
+      const rmt = [...rm]
+      rmt.push({ url: [], handler: rm[0].handler })
+      assert.throws(() => router(rmt), Error, `Router url wrong type. Route index: ${rmt.length - 1}`)
     })
     const rt = router(rm)
     it('router is init', () => {
@@ -84,6 +94,12 @@ describe('router', () => {
       mock.expects('end').withArgs('POST /')
       mock.expects('setHeader').withArgs('Content-Type', 'text/plain')
       rt({ method: 'POST', url: '/' }, res)
+      assert.strictEqual(res.statusCode, 200)
+      res.statusCode = null
+    })
+    it('GET /page/\\d', () => {
+      mock.expects('end').withArgs('GET /page/\\d')
+      rt({ method: 'GET', url: '/page/1' }, res)
       assert.strictEqual(res.statusCode, 200)
       res.statusCode = null
     })
