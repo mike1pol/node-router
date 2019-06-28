@@ -7,7 +7,7 @@
     "lint": "standard",
     "test": "nyc mocha",
     "test:report": "nyc --reporter=lcov --reporter=text-summary mocha tests/",
-    "test:codecov": "codecov"
+    "test:codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "engines": {
     "node": ">=8.0.0"
