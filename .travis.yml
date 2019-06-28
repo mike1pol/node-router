@@ -6,9 +6,7 @@ node_js:
 cache:
   directories:
   - node_modules
-script:
-  - npm test
-  - npm run test:codecov
+after_success: npm run test:codecov
 deploy:
   provider: npm
   email: mikle.sol@gmail.com
